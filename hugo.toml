@@ -1,0 +1,33 @@
+baseURL = 'http://111.230.5.121/'
+languageCode = 'zh-cn'
+title = 'My Blog'
+theme = 'PaperMod'
+
+[params.author]
+  name = ""
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowShareButtons = false
+
+[params.homeInfoParams]
+  Title = "Welcome"
+  Content = "个人博客"
+
+[[menus.main]]
+  name = "文章"
+  url = "/posts/"
+  weight = 1
+
+[[menus.main]]
+  name = "归档"
+  url = "/archives/"
+  weight = 2
+
+[[menus.main]]
+  name = "搜索"
+  url = "/search/"
+  weight = 3

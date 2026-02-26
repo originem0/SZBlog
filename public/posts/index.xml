@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on My Blog</title>
+    <link>http://111.230.5.121/posts/</link>
+    <description>Recent content in Posts on My Blog</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 26 Feb 2026 16:00:29 +0800</lastBuildDate>
+    <atom:link href="http://111.230.5.121/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://111.230.5.121/posts/hello-world/</link>
+      <pubDate>Thu, 26 Feb 2026 16:00:29 +0800</pubDate>
+      <guid>http://111.230.5.121/posts/hello-world/</guid>
+      <description>&lt;p&gt;这是我的第一篇博客文章。&lt;/p&gt;
+&lt;h2 id=&#34;为什么写博客&#34;&gt;为什么写博客&lt;/h2&gt;
+&lt;p&gt;记录学习、分享经验。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
