@@ -1,0 +1,261 @@
+/* ============================================
+   博客视觉优化 — 覆盖 PaperMod 默认样式
+   通过 assets/css/extended/ 机制加载，不修改主题文件
+   ============================================ */
+
+/* --- 字体栈 --- */
+body {
+    font-family: 'Noto Serif SC', 'Noto Serif CJK SC', Georgia, 'Times New Roman', serif;
+    line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6,
+.nav, .logo, .menu,
+.header, .footer,
+.post-title, .entry-title {
+    font-family: 'Inter', 'Noto Serif SC', system-ui, -apple-system, sans-serif;
+}
+
+code, pre, .highlight {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+}
+
+/* --- 排版优化 --- */
+.post-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.post-content p {
+    margin-bottom: 1.2em;
+}
+
+.post-content h2 {
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+}
+
+.post-content h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+}
+
+/* 大屏微调字号 */
+@media screen and (min-width: 1200px) {
+    .post-content {
+        font-size: 17px;
+    }
+}
+
+/* --- 亮色模式色彩微调 --- */
+:root {
+    --link-color: #2563eb;
+    --link-hover-color: #1d4ed8;
+}
+
+.post-content a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: none; /* 移除主题默认的 box-shadow 下划线，避免与 border-bottom 叠加 */
+    transition: border-color 0.2s ease;
+}
+
+.post-content a:hover {
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-color);
+}
+
+/* --- 暗色模式微调 --- */
+:root[data-theme="dark"] {
+    --theme: rgb(32, 33, 36);
+    --link-color: #60a5fa;
+    --link-hover-color: #93bbfd;
+}
+
+[data-theme="dark"] .post-content a {
+    color: var(--link-color);
+}
+
+[data-theme="dark"] .post-content a:hover {
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-color);
+}
+
+/* --- 文章卡片 hover 效果 --- */
+.post-entry {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-entry:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .post-entry:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Blockquote 样式 --- */
+.post-content blockquote {
+    border-left: 3px solid var(--link-color);
+    padding-left: 1em;
+    margin-left: 0;
+    color: var(--secondary);
+    font-style: italic;
+}
+
+/* --- 代码块优化 --- */
+.post-content .highlight pre {
+    border-radius: 8px;
+    padding: 1em 1.2em;
+}
+
+.post-content code {
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.88em;
+}
+
+/* --- 标签样式柔和化 --- */
+.terms-tags a,
+.post-tags a {
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.post-tags a:hover {
+    border-color: var(--secondary);
+}
+
+/* --- 图片淡阴影 --- */
+.post-content img {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .post-content img {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 移动端适配 --- */
+@media screen and (max-width: 768px) {
+    .post-content {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .post-content blockquote {
+        padding-left: 0.8em;
+    }
+}
+
+/* ============================================
+   V2 优化 — Paginav / 导航 / 面包屑 / Footer
+   ============================================ */
+
+/* --- Paginav 重新设计：灰色拼块 → 独立卡片 --- */
+.paginav {
+    gap: 16px;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+.paginav a {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    flex: 1;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paginav a:hover {
+    border-color: var(--link-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    background: var(--entry);
+}
+
+.paginav .title {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    color: var(--secondary);
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* 去掉文字标题 hover 时的 box-shadow 下划线 */
+.paginav span:hover:not(.title) {
+    box-shadow: none;
+}
+
+[data-theme="dark"] .paginav a:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 导航栏 hover 过渡 --- */
+#menu a span {
+    transition: border-color 0.2s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+}
+
+#menu a:hover span {
+    border-bottom-color: var(--secondary);
+}
+
+#menu .active {
+    border-bottom-color: currentColor;
+}
+
+/* --- 面包屑优化 --- */
+.breadcrumbs a {
+    color: var(--secondary);
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+}
+
+/* --- 首页 Welcome 区域收紧 --- */
+.first-entry.home-info {
+    min-height: auto;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.home-info .entry-content {
+    color: var(--secondary);
+    font-size: 15px;
+}
+
+/* --- Footer 链接统一风格 --- */
+.footer a {
+    border-bottom: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--primary);
+    border-bottom: none;
+}
+
+/* --- 文章卡片：去掉按压缩小效果 --- */
+.post-entry:active {
+    transform: none;
+}
+
+/* --- 移动端 Paginav 适配 --- */
+@media screen and (max-width: 768px) {
+    .paginav {
+        flex-direction: column;
+    }
+
+    .paginav a {
+        width: 100%;
+    }
+}

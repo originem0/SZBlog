@@ -7,7 +7,7 @@ theme = 'PaperMod'
   home = ["HTML", "RSS", "JSON"]
 
 [params.author]
-  name = ""
+  name = "sharon"
 
 [params]
   defaultTheme = "auto"
