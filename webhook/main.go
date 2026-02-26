@@ -43,7 +43,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("received push event, rebuilding...")
 
-	cmd := exec.Command("bash", "-c", "cd /home/ubuntu/blog && git pull && hugo")
+	cmd := exec.Command("bash", "-c", "cd /home/ubuntu/blog && git pull && /snap/bin/hugo")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
