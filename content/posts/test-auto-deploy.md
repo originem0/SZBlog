@@ -6,3 +6,5 @@ title = 'Test Auto Deploy'
 +++
 
 hello world
+
+自动部署测试 - 如果你看到这行，说明 webhook 工作正常。
