@@ -2,7 +2,7 @@
 {{- if not (or (eq .Layout "archives") (eq .Layout "search")) }}
 <script>
 (function() {
-  var API = window.location.protocol + '//' + window.location.hostname + ':9000/api/view';
+  var API = '/api/view';
   var path = window.location.pathname;
 
   // 获取并展示阅读数
