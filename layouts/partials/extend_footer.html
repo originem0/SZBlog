@@ -1,0 +1,28 @@
+{{- if eq .Kind "page" }}
+{{- if not (or (eq .Layout "archives") (eq .Layout "search")) }}
+<script>
+(function() {
+  var API = window.location.protocol + '//' + window.location.hostname + ':9000/api/view';
+  var path = window.location.pathname;
+
+  // 获取并展示阅读数
+  fetch(API + '?path=' + encodeURIComponent(path))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var el = document.querySelector('.post-meta');
+      if (el && typeof data.views === 'number') {
+        var span = document.createElement('span');
+        span.className = 'view-count';
+        span.innerHTML = ' · 阅读 ' + data.views;
+        el.appendChild(span);
+      }
+    })
+    .catch(function() {});
+
+  // 记录一次阅读
+  fetch(API + '?path=' + encodeURIComponent(path), { method: 'POST' })
+    .catch(function() {});
+})();
+</script>
+{{- end }}
+{{- end }}
