@@ -61,9 +61,7 @@ blog/
 ```
 
 ## 线上地址
-
-- 临时：http://111.230.5.121
-- 正式：https://blog.xxx.xxx（域名备案中）
+https://loan.sharonzhou.site/
 
 ## TODO
 
