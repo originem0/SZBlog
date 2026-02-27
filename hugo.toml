@@ -1,4 +1,4 @@
-baseURL = 'http://111.230.5.121/'
+baseURL = 'https://sharonzhou.site/'
 languageCode = 'zh-cn'
 title = 'My Blog'
 theme = 'PaperMod'
