@@ -158,80 +158,76 @@ code, pre, .highlight {
     font-style: italic;
 }
 
-/* --- 代码块优化：浅色背景 --- */
-/* 覆盖 PaperMod 内置的 Catppuccin 深色代码配色 */
-.post-content .highlight pre,
-.highlight pre.chroma,
-.chroma {
-    background-color: #f5f7fb !important;
-    color: #334155 !important;
-    border-radius: 8px;
-}
+/* --- 代码块优化：GitHub 浅色主题（hugo gen chromastyles --style=github） --- */
+/* 亮色模式：覆盖 PaperMod 内置 Catppuccin 深色 */
+.chroma { color: #1f2328; background-color: var(--code-block-bg) !important; }
+.highlight pre.chroma { padding: 1em 1.2em; border-radius: 8px; }
+.chroma .err { color: #f6f8fa; background-color: #82071e; }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+.chroma .hl { background-color: #dedede; }
+.chroma .lnt, .chroma .ln { color: #7f7f7f; }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn,
+.chroma .kp, .chroma .kr, .chroma .kt { color: #cf222e; }
+.chroma .na, .chroma .nc { color: #1f2328; }
+.chroma .no, .chroma .nd, .chroma .nt { color: #0550ae; }
+.chroma .ni { color: #6639ba; }
+.chroma .nl { color: #900; font-weight: bold; }
+.chroma .nn { color: #24292e; }
+.chroma .nx, .chroma .p { color: #1f2328; }
+.chroma .nb, .chroma .nf, .chroma .fm { color: #6639ba; }
+.chroma .bp { color: #6a737d; }
+.chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm { color: #953800; }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+.chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si,
+.chroma .sx, .chroma .sr, .chroma .s1 { color: #0a3069; }
+.chroma .ss { color: #032f62; }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh,
+.chroma .mi, .chroma .il, .chroma .mo { color: #0550ae; }
+.chroma .o, .chroma .ow { color: #0550ae; }
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1,
+.chroma .cs, .chroma .cp, .chroma .cpf { color: #57606a; }
+.chroma .gd { color: #82071e; background-color: #ffebe9; }
+.chroma .ge { color: #1f2328; }
+.chroma .gi { color: #116329; background-color: #dafbe1; }
+.chroma .go { color: #1f2328; }
+.chroma .gl { text-decoration: underline; }
 
-.post-content .highlight pre {
-    padding: 1em 1.2em;
-}
-
-/* 浅色代码高亮语法色 */
-.chroma .k, .chroma .kc, .chroma .kd,
-.chroma .kp, .chroma .kr { color: #7c3aed; }           /* 关键字：紫色 */
-.chroma .kt, .chroma .kn { color: #0891b2; }            /* 类型/命名空间：青色 */
-.chroma .s, .chroma .s1, .chroma .s2,
-.chroma .sb, .chroma .sc, .chroma .si,
-.chroma .sx, .chroma .ss { color: #16a34a; }            /* 字符串：绿色 */
-.chroma .m, .chroma .mi, .chroma .mf,
-.chroma .mh, .chroma .mb, .chroma .mo,
-.chroma .il { color: #d97706; }                          /* 数字：琥珀色 */
-.chroma .nf, .chroma .fm { color: #2563eb; }            /* 函数名：蓝色 */
-.chroma .nc, .chroma .no { color: #b45309; }            /* 类名/常量：棕色 */
-.chroma .na { color: #0284c7; }                          /* 属性：天蓝 */
-.chroma .nb, .chroma .bp { color: #0891b2; }            /* 内建：青色 */
-.chroma .nn { color: #6d28d9; }                          /* 命名空间：深紫 */
-.chroma .nt { color: #7c3aed; }                          /* 标签：紫色 */
-.chroma .c, .chroma .c1, .chroma .cm,
-.chroma .ch, .chroma .cs, .chroma .cp,
-.chroma .cpf { color: #94a3b8; font-style: italic; }    /* 注释：灰色斜体 */
-.chroma .o, .chroma .ow { color: #0891b2; }             /* 运算符：青色 */
-.chroma .err { color: #dc2626; }                         /* 错误：红色 */
-.chroma .lnt, .chroma .ln { color: #94a3b8; }           /* 行号：灰色 */
-.chroma .hl { background-color: #e0e7ff; }              /* 高亮行：浅蓝 */
-.chroma .gd { color: #dc2626; background-color: #fef2f2; } /* diff 删除 */
-.chroma .gi { color: #16a34a; background-color: #f0fdf4; } /* diff 新增 */
-
-/* 暗色模式保持深色代码块 */
-[data-theme="dark"] .highlight pre.chroma,
-[data-theme="dark"] .chroma {
-    background-color: var(--code-bg) !important;
-    color: #cad3f5 !important;
-}
-
-/* 暗色模式恢复 PaperMod 原始 Catppuccin 配色 */
+/* 暗色模式：恢复 PaperMod 原始 Catppuccin Macchiato 配色 */
+[data-theme="dark"] .chroma { color: #cad3f5; background-color: var(--code-block-bg) !important; }
+[data-theme="dark"] .chroma .err { color: #ed8796; background-color: transparent; }
+[data-theme="dark"] .chroma .hl { background-color: #474733; }
+[data-theme="dark"] .chroma .lnt, [data-theme="dark"] .chroma .ln { color: #8087a2; }
 [data-theme="dark"] .chroma .k, [data-theme="dark"] .chroma .kc,
 [data-theme="dark"] .chroma .kd, [data-theme="dark"] .chroma .kp,
-[data-theme="dark"] .chroma .kr { color: #c6a0f6; }
+[data-theme="dark"] .chroma .kr, [data-theme="dark"] .chroma .nt { color: #c6a0f6; }
 [data-theme="dark"] .chroma .kt, [data-theme="dark"] .chroma .kn { color: #8bd5ca; }
-[data-theme="dark"] .chroma .s, [data-theme="dark"] .chroma .s1,
-[data-theme="dark"] .chroma .s2, [data-theme="dark"] .chroma .sb,
-[data-theme="dark"] .chroma .sc, [data-theme="dark"] .chroma .si,
-[data-theme="dark"] .chroma .sx, [data-theme="dark"] .chroma .ss { color: #a6da95; }
-[data-theme="dark"] .chroma .m, [data-theme="dark"] .chroma .mi,
-[data-theme="dark"] .chroma .mf, [data-theme="dark"] .chroma .mh,
-[data-theme="dark"] .chroma .mb, [data-theme="dark"] .chroma .mo,
-[data-theme="dark"] .chroma .il { color: #f5a97f; }
-[data-theme="dark"] .chroma .nf, [data-theme="dark"] .chroma .fm { color: #8aadf4; }
-[data-theme="dark"] .chroma .nc, [data-theme="dark"] .chroma .no { color: #eed49f; }
-[data-theme="dark"] .chroma .na { color: #8aadf4; }
+[data-theme="dark"] .chroma .na, [data-theme="dark"] .chroma .nf,
+[data-theme="dark"] .chroma .fm { color: #8aadf4; }
 [data-theme="dark"] .chroma .nb, [data-theme="dark"] .chroma .bp { color: #91d7e3; }
+[data-theme="dark"] .chroma .nc, [data-theme="dark"] .chroma .no { color: #eed49f; }
 [data-theme="dark"] .chroma .nn { color: #f5a97f; }
-[data-theme="dark"] .chroma .nt { color: #c6a0f6; }
-[data-theme="dark"] .chroma .c, [data-theme="dark"] .chroma .c1,
-[data-theme="dark"] .chroma .cm, [data-theme="dark"] .chroma .ch,
+[data-theme="dark"] .chroma .nv, [data-theme="dark"] .chroma .vc,
+[data-theme="dark"] .chroma .vg, [data-theme="dark"] .chroma .vi,
+[data-theme="dark"] .chroma .vm { color: #f4dbd6; }
+[data-theme="dark"] .chroma .nx, [data-theme="dark"] .chroma .p { color: #cad3f5; }
+[data-theme="dark"] .chroma .s, [data-theme="dark"] .chroma .sa,
+[data-theme="dark"] .chroma .sb, [data-theme="dark"] .chroma .sc,
+[data-theme="dark"] .chroma .dl, [data-theme="dark"] .chroma .sd,
+[data-theme="dark"] .chroma .s2, [data-theme="dark"] .chroma .se,
+[data-theme="dark"] .chroma .sh, [data-theme="dark"] .chroma .si,
+[data-theme="dark"] .chroma .sx, [data-theme="dark"] .chroma .sr,
+[data-theme="dark"] .chroma .s1, [data-theme="dark"] .chroma .ss { color: #a6da95; }
+[data-theme="dark"] .chroma .m, [data-theme="dark"] .chroma .mb,
+[data-theme="dark"] .chroma .mf, [data-theme="dark"] .chroma .mh,
+[data-theme="dark"] .chroma .mi, [data-theme="dark"] .chroma .il,
+[data-theme="dark"] .chroma .mo { color: #f5a97f; }
+[data-theme="dark"] .chroma .o, [data-theme="dark"] .chroma .ow { color: #91d7e3; }
+[data-theme="dark"] .chroma .c, [data-theme="dark"] .chroma .ch,
+[data-theme="dark"] .chroma .cm, [data-theme="dark"] .chroma .c1,
 [data-theme="dark"] .chroma .cs, [data-theme="dark"] .chroma .cp,
 [data-theme="dark"] .chroma .cpf { color: #6e738d; }
-[data-theme="dark"] .chroma .o, [data-theme="dark"] .chroma .ow { color: #91d7e3; }
-[data-theme="dark"] .chroma .err { color: #ed8796; }
-[data-theme="dark"] .chroma .lnt, [data-theme="dark"] .chroma .ln { color: #8087a2; }
-[data-theme="dark"] .chroma .hl { background-color: #474733; }
 [data-theme="dark"] .chroma .gd { color: #ed8796; background-color: #363a4f; }
 [data-theme="dark"] .chroma .gi { color: #a6da95; background-color: #363a4f; }
 
