@@ -382,3 +382,87 @@ code, pre, .highlight {
         width: 100%;
     }
 }
+
+/* ============================================
+   V3 — 侧边栏分类导航（宽屏 sticky 浮动）
+   ============================================ */
+
+/* 侧边栏：固定在视口右侧空白区，宽屏才显示 */
+.sidebar-nav {
+    display: none;              /* 默认隐藏，宽屏启用 */
+}
+
+@media screen and (min-width: 1280px) {
+    .sidebar-nav {
+        display: block;
+        position: fixed;
+        top: 120px;
+        /* 定位在主内容右侧：页面居中 + 主内容半宽 + 间距 */
+        left: calc(50% + 380px);
+        width: 180px;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+    }
+
+    .sidebar-section {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-link {
+        display: block;
+        padding: 4px 0;
+        font-size: 14px;
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .sidebar-link:hover {
+        color: var(--link-color);
+    }
+
+    .sidebar-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .sidebar-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        font-size: 12px;
+        color: var(--secondary);
+        background: var(--code-bg);
+        border-radius: 4px;
+        text-decoration: none;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .sidebar-tag:hover {
+        color: var(--link-color);
+        background: var(--border);
+    }
+
+    .sidebar-tag-count {
+        font-size: 11px;
+        color: var(--secondary);
+        opacity: 0.6;
+    }
+}

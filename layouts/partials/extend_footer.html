@@ -26,3 +26,26 @@
 </script>
 {{- end }}
 {{- end }}
+
+{{/* 侧边栏分类导航：仅首页和列表页显示，宽屏 sticky 浮动 */}}
+{{- if or (.IsHome) (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
+<aside class="sidebar-nav" id="sidebar-nav">
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">分类导航</h3>
+    <ul class="sidebar-links">
+      <li><a href="/posts/" class="sidebar-link">全部文章</a></li>
+      <li><a href="/archives/" class="sidebar-link">归档</a></li>
+    </ul>
+  </div>
+  {{- with site.Taxonomies.tags }}
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">标签</h3>
+    <div class="sidebar-tags">
+      {{- range $name, $pages := . }}
+      <a href="{{ printf "/tags/%s/" $name | absURL }}" class="sidebar-tag">{{ $name }} <span class="sidebar-tag-count">{{ len $pages }}</span></a>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+</aside>
+{{- end }}
