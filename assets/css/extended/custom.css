@@ -33,11 +33,15 @@ code, pre, .highlight {
 .post-content h2 {
     margin-top: 2em;
     margin-bottom: 0.8em;
+    color: var(--heading-color-h2);
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--blue-tint-border);
 }
 
 .post-content h3 {
     margin-top: 1.6em;
     margin-bottom: 0.6em;
+    color: var(--heading-color-h3);
 }
 
 /* 大屏微调字号 */
@@ -48,9 +52,31 @@ code, pre, .highlight {
 }
 
 /* --- 亮色模式色彩微调 --- */
+/* Blue Topaz 风格：从灰色系偏移到蓝色调 */
 :root {
     --link-color: #2563eb;
     --link-hover-color: #1d4ed8;
+    --blue-tint-bg: #f8faff;          /* 页面背景微蓝 */
+    --blue-tint-card: #ffffff;         /* 卡片保持白色，和背景形成层次 */
+    --blue-tint-border: #e0e7f1;      /* 边框偏蓝灰 */
+    --heading-color-h2: #1e40af;      /* H2 深蓝 */
+    --heading-color-h3: #2563eb;      /* H3 中蓝 */
+    --blockquote-bg: #eff6ff;         /* 引用框浅蓝背景 */
+    --blockquote-border: #3b82f6;     /* 引用框左边框 */
+}
+
+body {
+    background: var(--blue-tint-bg);
+}
+
+/* 卡片、entry 背景白色，与微蓝底色形成层次感 */
+.main .post-entry {
+    background: var(--blue-tint-card);
+    border-color: var(--blue-tint-border);
+}
+
+.paginav a {
+    border-color: var(--blue-tint-border);
 }
 
 .post-content a {
@@ -71,6 +97,22 @@ code, pre, .highlight {
     --theme: rgb(32, 33, 36);
     --link-color: #60a5fa;
     --link-hover-color: #93bbfd;
+    --blue-tint-bg: #1a1b2e;           /* 深蓝黑底 */
+    --blue-tint-card: #1e1f33;         /* 卡片稍亮，与背景区分 */
+    --blue-tint-border: #2d3152;       /* 边框深蓝灰 */
+    --heading-color-h2: #60a5fa;
+    --heading-color-h3: #93c5fd;
+    --blockquote-bg: rgba(59, 130, 246, 0.08);
+    --blockquote-border: #3b82f6;
+}
+
+[data-theme="dark"] body {
+    background: var(--blue-tint-bg);
+}
+
+[data-theme="dark"] .main .post-entry {
+    background: var(--blue-tint-card);
+    border-color: var(--blue-tint-border);
 }
 
 [data-theme="dark"] .post-content a {
@@ -95,11 +137,14 @@ code, pre, .highlight {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* --- Blockquote 样式 --- */
+/* --- Blockquote 样式 — Blue Topaz 风格卡片式引用 --- */
 .post-content blockquote {
-    border-left: 3px solid var(--link-color);
-    padding-left: 1em;
+    border-left: 3px solid var(--blockquote-border);
+    background: var(--blockquote-bg);
+    border-radius: 0 8px 8px 0;
+    padding: 1em 1.2em;
     margin-left: 0;
+    margin-right: 0;
     color: var(--secondary);
     font-style: italic;
 }
