@@ -82,6 +82,7 @@ code, pre, .highlight {
     --entry: #ffffff;                  /* 卡片白色，与背景形成层次（原 rgb(255,255,255)） */
     --border: #e0e7f1;                 /* 边框偏蓝灰（原 rgb(238,238,238)） */
     --code-bg: #eef2f9;               /* 行内代码/列表页背景微蓝（原 rgb(245,245,245)） */
+    --code-block-bg: #f5f7fb;         /* 代码块外层背景（原 rgb(28,29,33) 深黑） */
     /* 自定义扩展变量 */
     --link-color: #2563eb;
     --link-hover-color: #1d4ed8;
@@ -111,6 +112,7 @@ code, pre, .highlight {
     --entry: #1e1f33;                  /* 卡片稍亮（原 rgb(46,46,51)） */
     --border: #2d3152;                 /* 边框深蓝灰（原 rgb(51,51,51)） */
     --code-bg: #252640;               /* 行内代码/列表页背景（原 rgb(55,56,62)） */
+    --code-block-bg: #252640;         /* 代码块外层背景 */
     /* 自定义扩展变量 */
     --link-color: #60a5fa;
     --link-hover-color: #93bbfd;
@@ -411,7 +413,7 @@ code, pre, .highlight {
     .sidebar-title {
         font-size: 13px;
         font-weight: 600;
-        color: var(--secondary);
+        color: var(--primary);
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-bottom: 8px;
@@ -429,7 +431,7 @@ code, pre, .highlight {
         display: block;
         padding: 4px 0;
         font-size: 14px;
-        color: var(--secondary);
+        color: var(--primary);
         text-decoration: none;
         transition: color 0.2s ease;
     }
@@ -448,7 +450,7 @@ code, pre, .highlight {
         display: inline-block;
         padding: 2px 8px;
         font-size: 12px;
-        color: var(--secondary);
+        color: var(--primary);
         background: var(--code-bg);
         border-radius: 4px;
         text-decoration: none;
