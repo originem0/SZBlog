@@ -35,7 +35,7 @@ code, pre, .highlight {
     margin-bottom: 0.8em;
     color: var(--heading-color-h2);
     padding-bottom: 0.3em;
-    border-bottom: 1px solid var(--blue-tint-border);
+    border-bottom: 1px solid var(--border);
 }
 
 .post-content h3 {
@@ -52,31 +52,20 @@ code, pre, .highlight {
 }
 
 /* --- 亮色模式色彩微调 --- */
-/* Blue Topaz 风格：从灰色系偏移到蓝色调 */
+/* Blue Topaz 风格：覆盖 PaperMod 原生变量，全站统一蓝色调 */
 :root {
+    /* 覆盖 PaperMod 核心变量，全站生效 */
+    --theme: #f8faff;                  /* 页面背景微蓝（原 rgb(255,255,255)） */
+    --entry: #ffffff;                  /* 卡片白色，与背景形成层次（原 rgb(255,255,255)） */
+    --border: #e0e7f1;                 /* 边框偏蓝灰（原 rgb(238,238,238)） */
+    --code-bg: #eef2f9;               /* 行内代码/列表页背景微蓝（原 rgb(245,245,245)） */
+    /* 自定义扩展变量 */
     --link-color: #2563eb;
     --link-hover-color: #1d4ed8;
-    --blue-tint-bg: #f8faff;          /* 页面背景微蓝 */
-    --blue-tint-card: #ffffff;         /* 卡片保持白色，和背景形成层次 */
-    --blue-tint-border: #e0e7f1;      /* 边框偏蓝灰 */
-    --heading-color-h2: #1e40af;      /* H2 深蓝 */
-    --heading-color-h3: #2563eb;      /* H3 中蓝 */
-    --blockquote-bg: #eff6ff;         /* 引用框浅蓝背景 */
-    --blockquote-border: #3b82f6;     /* 引用框左边框 */
-}
-
-body {
-    background: var(--blue-tint-bg);
-}
-
-/* 卡片、entry 背景白色，与微蓝底色形成层次感 */
-.main .post-entry {
-    background: var(--blue-tint-card);
-    border-color: var(--blue-tint-border);
-}
-
-.paginav a {
-    border-color: var(--blue-tint-border);
+    --heading-color-h2: #1e40af;       /* H2 深蓝 */
+    --heading-color-h3: #2563eb;       /* H3 中蓝 */
+    --blockquote-bg: #eff6ff;          /* 引用框浅蓝背景 */
+    --blockquote-border: #3b82f6;      /* 引用框左边框 */
 }
 
 .post-content a {
@@ -94,26 +83,21 @@ body {
 
 /* --- 暗色模式微调 --- */
 :root[data-theme="dark"] {
-    --theme: rgb(32, 33, 36);
+    /* 覆盖 PaperMod 核心变量 */
+    --theme: #1a1b2e;                  /* 深蓝黑底（原 rgb(29,30,32)） */
+    --entry: #1e1f33;                  /* 卡片稍亮（原 rgb(46,46,51)） */
+    --border: #2d3152;                 /* 边框深蓝灰（原 rgb(51,51,51)） */
+    --code-bg: #252640;               /* 行内代码/列表页背景（原 rgb(55,56,62)） */
+    /* 自定义扩展变量 */
     --link-color: #60a5fa;
     --link-hover-color: #93bbfd;
-    --blue-tint-bg: #1a1b2e;           /* 深蓝黑底 */
-    --blue-tint-card: #1e1f33;         /* 卡片稍亮，与背景区分 */
-    --blue-tint-border: #2d3152;       /* 边框深蓝灰 */
     --heading-color-h2: #60a5fa;
     --heading-color-h3: #93c5fd;
     --blockquote-bg: rgba(59, 130, 246, 0.08);
     --blockquote-border: #3b82f6;
 }
 
-[data-theme="dark"] body {
-    background: var(--blue-tint-bg);
-}
-
-[data-theme="dark"] .main .post-entry {
-    background: var(--blue-tint-card);
-    border-color: var(--blue-tint-border);
-}
+/* 暗色模式不再需要逐个元素覆盖，PaperMod 变量已全局生效 */
 
 [data-theme="dark"] .post-content a {
     color: var(--link-color);

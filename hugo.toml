@@ -20,6 +20,7 @@ lastmod = [':git']
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowShareButtons = false
+  ShowCodeCopyButtons = true
   comments = true
 
 [params.homeInfoParams]
