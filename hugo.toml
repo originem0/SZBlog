@@ -19,6 +19,8 @@ lastmod = [':git']
   ShowBreadCrumbs = true
   ShowShareButtons = false
   ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = true
   comments = true
 
 [params.label]

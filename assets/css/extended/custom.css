@@ -512,3 +512,106 @@ code, pre, .highlight {
         opacity: 0.6;
     }
 }
+
+/* ============================================
+   V4 — 文章详情页 TOC 右侧浮动目录
+   ============================================ */
+
+/* 宽屏：TOC 浮动到右侧 */
+@media screen and (min-width: 1280px) {
+    .toc {
+        position: fixed;
+        top: 120px;
+        left: calc(50% + 380px);
+        width: 200px;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+    }
+
+    .toc details {
+        background: none;
+        border: none;
+        border-radius: 0;
+    }
+
+    .toc details summary {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 8px;
+        cursor: default;
+        list-style: none;
+    }
+
+    .toc details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .toc .inner {
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .toc ul ul {
+        padding-left: 12px;
+    }
+
+    .toc li {
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 3px 0;
+        font-size: 13px;
+        color: var(--secondary);
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.2s ease;
+        border: none;
+        box-shadow: none;
+    }
+
+    .toc a:hover {
+        color: var(--link-color);
+    }
+}
+
+/* 窄屏：保持 PaperMod 默认内联 TOC，微调样式 */
+@media screen and (max-width: 1279px) {
+    .toc {
+        margin-bottom: 1.5em;
+    }
+
+    .toc details summary {
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .toc a {
+        font-size: 14px;
+        color: var(--secondary);
+        text-decoration: none;
+    }
+
+    .toc a:hover {
+        color: var(--link-color);
+    }
+}
