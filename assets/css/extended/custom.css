@@ -390,6 +390,11 @@ code, pre, .highlight {
     color: var(--primary);
 }
 
+/* --- 列表页/归档页隐藏大标题（Posts、AI 日报、归档等） --- */
+.page-header {
+    display: none;
+}
+
 /* --- 首页 Welcome 区域收紧 --- */
 .first-entry.home-info {
     min-height: auto;
