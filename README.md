@@ -60,16 +60,7 @@ blog/
 └── README.md
 ```
 
-## 线上地址
-https://loan.sharonzhou.site/
 
-## TODO
-
-### 域名与 HTTPS
-- [ ] 域名备案完成后绑定 `blog.xxx.xxx`
-- [ ] 配置 SSL 证书（Let's Encrypt 或腾讯云免费证书）
-- [ ] Nginx 配置 HTTP → HTTPS 跳转
-- [ ] 更新 hugo.toml 中的 baseURL
 
 ### 内容
 - [ ] 写满 10 篇文章（第一个月目标）
