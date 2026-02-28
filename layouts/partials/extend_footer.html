@@ -33,8 +33,9 @@
   <div class="sidebar-section">
     <h3 class="sidebar-title">分类导航</h3>
     <ul class="sidebar-links">
-      <li><a href="/posts/" class="sidebar-link">全部文章</a></li>
-      <li><a href="/ai-daily/" class="sidebar-link">AI 日报</a></li>
+      {{- range site.Sections }}
+      <li><a href="{{ .Permalink }}" class="sidebar-link">{{ .Title }}</a></li>
+      {{- end }}
       <li><a href="/archives/" class="sidebar-link">归档</a></li>
     </ul>
   </div>

@@ -1,0 +1,181 @@
+/* ============================================
+   05-sidebar: 侧边栏导航 + TOC 浮动
+   ============================================ */
+
+/* 侧边栏：固定在视口右侧空白区，宽屏才显示 */
+.sidebar-nav {
+    display: none;
+}
+
+@media screen and (min-width: 1280px) {
+    .sidebar-nav {
+        display: block;
+        position: fixed;
+        top: 120px;
+        left: calc(50% + 380px);
+        width: 180px;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+    }
+
+    .sidebar-section {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-link {
+        display: block;
+        padding: 4px 0;
+        font-size: 14px;
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .sidebar-link:hover {
+        color: var(--link-color);
+    }
+
+    .sidebar-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .sidebar-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        font-size: 12px;
+        color: var(--primary);
+        background: var(--code-bg);
+        border-radius: 4px;
+        text-decoration: none;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .sidebar-tag:hover {
+        color: var(--link-color);
+        background: var(--border);
+    }
+
+    .sidebar-tag-count {
+        font-size: 11px;
+        color: var(--secondary);
+        opacity: 0.6;
+    }
+}
+
+/* --- TOC 宽屏右侧浮动 --- */
+@media screen and (min-width: 1280px) {
+    .toc {
+        position: fixed;
+        top: 120px;
+        left: calc(50% + 380px);
+        width: 200px;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+    }
+
+    .toc details {
+        background: none;
+        border: none;
+        border-radius: 0;
+    }
+
+    .toc details summary {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 8px;
+        cursor: default;
+        list-style: none;
+    }
+
+    .toc details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .toc .inner {
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .toc ul ul {
+        padding-left: 12px;
+    }
+
+    .toc li {
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 3px 0;
+        font-size: 13px;
+        color: var(--secondary);
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.2s ease;
+        border: none;
+        box-shadow: none;
+    }
+
+    .toc a:hover {
+        color: var(--link-color);
+    }
+}
+
+/* --- TOC 窄屏内联 --- */
+@media screen and (max-width: 1279px) {
+    .toc {
+        margin-bottom: 1.5em;
+    }
+
+    .toc details summary {
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .toc a {
+        font-size: 14px;
+        color: var(--secondary);
+        text-decoration: none;
+    }
+
+    .toc a:hover {
+        color: var(--link-color);
+    }
+}

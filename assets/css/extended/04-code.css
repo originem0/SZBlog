@@ -1,0 +1,121 @@
+/* ============================================
+   04-code: chroma 语法高亮（亮色/暗色）、
+   无语言代码块、语言标签
+   ============================================ */
+
+/* --- 无语言标注的代码块 --- */
+.post-content pre:not(.chroma) {
+    background: var(--code-block-bg) !important;
+    color: #24292f !important;
+    padding: 1em 1.2em;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.post-content pre:not(.chroma) code {
+    color: #24292f !important;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .post-content pre:not(.chroma) {
+    color: #cad3f5 !important;
+}
+
+[data-theme="dark"] .post-content pre:not(.chroma) code {
+    color: #cad3f5 !important;
+}
+
+/* --- 代码块语言标签 --- */
+.highlight {
+    position: relative;
+}
+.highlight > div,
+.highlight > pre {
+    position: relative;
+}
+.highlight code[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--secondary);
+    background: var(--border);
+    border-radius: 0 8px 0 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+}
+
+/* --- 亮色模式：GitHub 浅色主题 --- */
+.chroma { color: #24292f; background-color: var(--code-block-bg) !important; }
+.highlight pre.chroma { padding: 1em 1.2em; border-radius: 8px; }
+.chroma .err { color: #f6f8fa; background-color: #82071e; }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+.chroma .hl { background-color: #dedede; }
+.chroma .lnt, .chroma .ln { color: #7f7f7f; }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn,
+.chroma .kp, .chroma .kr, .chroma .kt { color: #cf222e; }
+.chroma .na, .chroma .nc { color: #24292f; }
+.chroma .no, .chroma .nd, .chroma .nt { color: #0550ae; }
+.chroma .ni { color: #6639ba; }
+.chroma .nl { color: #900; font-weight: bold; }
+.chroma .nn { color: #24292e; }
+.chroma .nx, .chroma .p { color: #24292f; }
+.chroma .nb, .chroma .nf, .chroma .fm { color: #6639ba; }
+.chroma .bp { color: #6a737d; }
+.chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm { color: #953800; }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+.chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si,
+.chroma .sx, .chroma .sr, .chroma .s1 { color: #0a3069; }
+.chroma .ss { color: #032f62; }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh,
+.chroma .mi, .chroma .il, .chroma .mo { color: #0550ae; }
+.chroma .o, .chroma .ow { color: #0550ae; }
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1,
+.chroma .cs, .chroma .cp, .chroma .cpf { color: #57606a; }
+.chroma .gd { color: #82071e; background-color: #ffebe9; }
+.chroma .ge { color: #24292f; }
+.chroma .gi { color: #116329; background-color: #dafbe1; }
+.chroma .go { color: #24292f; }
+.chroma .gl { text-decoration: underline; }
+
+/* --- 暗色模式：Catppuccin Macchiato --- */
+[data-theme="dark"] .chroma { color: #cad3f5; background-color: var(--code-block-bg) !important; }
+[data-theme="dark"] .chroma .err { color: #ed8796; background-color: transparent; }
+[data-theme="dark"] .chroma .hl { background-color: #474733; }
+[data-theme="dark"] .chroma .lnt, [data-theme="dark"] .chroma .ln { color: #8087a2; }
+[data-theme="dark"] .chroma .k, [data-theme="dark"] .chroma .kc,
+[data-theme="dark"] .chroma .kd, [data-theme="dark"] .chroma .kp,
+[data-theme="dark"] .chroma .kr, [data-theme="dark"] .chroma .nt { color: #c6a0f6; }
+[data-theme="dark"] .chroma .kt, [data-theme="dark"] .chroma .kn { color: #8bd5ca; }
+[data-theme="dark"] .chroma .na, [data-theme="dark"] .chroma .nf,
+[data-theme="dark"] .chroma .fm { color: #8aadf4; }
+[data-theme="dark"] .chroma .nb, [data-theme="dark"] .chroma .bp { color: #91d7e3; }
+[data-theme="dark"] .chroma .nc, [data-theme="dark"] .chroma .no { color: #eed49f; }
+[data-theme="dark"] .chroma .nn { color: #f5a97f; }
+[data-theme="dark"] .chroma .nv, [data-theme="dark"] .chroma .vc,
+[data-theme="dark"] .chroma .vg, [data-theme="dark"] .chroma .vi,
+[data-theme="dark"] .chroma .vm { color: #f4dbd6; }
+[data-theme="dark"] .chroma .nx, [data-theme="dark"] .chroma .p { color: #cad3f5; }
+[data-theme="dark"] .chroma .s, [data-theme="dark"] .chroma .sa,
+[data-theme="dark"] .chroma .sb, [data-theme="dark"] .chroma .sc,
+[data-theme="dark"] .chroma .dl, [data-theme="dark"] .chroma .sd,
+[data-theme="dark"] .chroma .s2, [data-theme="dark"] .chroma .se,
+[data-theme="dark"] .chroma .sh, [data-theme="dark"] .chroma .si,
+[data-theme="dark"] .chroma .sx, [data-theme="dark"] .chroma .sr,
+[data-theme="dark"] .chroma .s1, [data-theme="dark"] .chroma .ss { color: #a6da95; }
+[data-theme="dark"] .chroma .m, [data-theme="dark"] .chroma .mb,
+[data-theme="dark"] .chroma .mf, [data-theme="dark"] .chroma .mh,
+[data-theme="dark"] .chroma .mi, [data-theme="dark"] .chroma .il,
+[data-theme="dark"] .chroma .mo { color: #f5a97f; }
+[data-theme="dark"] .chroma .o, [data-theme="dark"] .chroma .ow { color: #91d7e3; }
+[data-theme="dark"] .chroma .c, [data-theme="dark"] .chroma .ch,
+[data-theme="dark"] .chroma .cm, [data-theme="dark"] .chroma .c1,
+[data-theme="dark"] .chroma .cs, [data-theme="dark"] .chroma .cp,
+[data-theme="dark"] .chroma .cpf { color: #6e738d; }
+[data-theme="dark"] .chroma .gd { color: #ed8796; background-color: #363a4f; }
+[data-theme="dark"] .chroma .gi { color: #a6da95; background-color: #363a4f; }

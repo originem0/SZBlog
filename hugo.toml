@@ -1,6 +1,6 @@
 baseURL = 'https://sharonzhou.site/'
 languageCode = 'zh-cn'
-title = 'My Blog'
+title = 'Sharon 的博客'
 theme = 'PaperMod'
 enableGitInfo = true
 
@@ -12,6 +12,8 @@ lastmod = [':git']
   home = ["HTML", "RSS", "JSON"]
 
 [params]
+  env = "production"
+  description = "个人技术博客，记录 AI、建站与方法论"
   author = "sharon"
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -29,7 +31,7 @@ lastmod = [':git']
 
 [params.homeInfoParams]
   Title = "Welcome"
-  Content = "个人博客"
+  Content = "写作，坐在椅子前的艺术"
 
 [[menus.main]]
   name = "文章"
@@ -58,3 +60,6 @@ lastmod = [':git']
 
 [markup.highlight]
   noClasses = false
+
+[markup.goldmark.renderer]
+  unsafe = true

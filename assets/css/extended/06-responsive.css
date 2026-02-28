@@ -1,0 +1,30 @@
+/* ============================================
+   06-responsive: 所有响应式 media queries
+   ============================================ */
+
+/* 大屏微调字号 */
+@media screen and (min-width: 1200px) {
+    .post-content {
+        font-size: 15.5px;
+    }
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .post-content {
+        font-size: 14.5px;
+        line-height: 1.65;
+    }
+
+    .post-content blockquote {
+        padding-left: 0.8em;
+    }
+
+    .paginav {
+        flex-direction: column;
+    }
+
+    .paginav a {
+        width: 100%;
+    }
+}

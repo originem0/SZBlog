@@ -1,0 +1,60 @@
+/* ============================================
+   02-typography: 字体栈、排版、标题大小
+   ============================================ */
+
+body {
+    font-family: 'Noto Serif SC', 'Noto Serif CJK SC', Georgia, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.nav, .logo, .menu,
+.header, .footer,
+.post-title, .entry-title {
+    font-family: 'Inter', 'Noto Serif SC', system-ui, -apple-system, sans-serif;
+}
+
+code, pre, .highlight {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.post-content p {
+    margin-bottom: 0.8em;
+}
+
+/* --- 全站标题缩小：PaperMod 默认太大，不适合中文长内容阅读 --- */
+.post-title {
+    font-size: 28px;
+}
+
+.post-content h1 { font-size: 26px; }
+
+.post-content h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 22px;
+    color: var(--heading-color-h2);
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border);
+}
+
+.post-content h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+    font-size: 18px;
+    color: var(--heading-color-h3);
+}
+
+.post-content h4 { font-size: 16px; }
+
+.entry-header h2 {
+    font-size: 22px;
+}
+
+.first-entry .entry-header h1 {
+    font-size: 24px;
+}
