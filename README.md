@@ -40,23 +40,30 @@ hugo server --buildDrafts
 - [x] giscus 评论系统（基于 GitHub Discussions）
 - [x] 阅读统计（Go + SQLite，Nginx 反向代理）
 - [x] Nginx gzip 压缩 + 静态资源缓存
+- [x] 视觉优化：自定义字体栈（Noto Serif SC / Inter / JetBrains Mono）
+- [x] 视觉优化：排版调整（行高、间距、链接样式、代码块圆角）
+- [x] 视觉优化：Paginav 重设计、导航栏过渡、标签/面包屑/Footer 交互优化
+- [x] 亮色/暗色模式适配
 
 ## 项目结构
 
 ```
 blog/
+├── assets/css/extended/
+│   └── custom.css            # 自定义样式（覆盖 PaperMod 默认）
 ├── content/
-│   ├── posts/             # 文章 Markdown 文件
-│   ├── archives.md        # 归档页
-│   ├── search.md          # 搜索页
-│   └── about.md           # 关于页
+│   ├── posts/                # 文章 Markdown 文件
+│   ├── archives.md           # 归档页
+│   ├── search.md             # 搜索页
+│   └── about.md              # 关于页
 ├── layouts/partials/
-│   ├── comments.html      # giscus 评论组件（覆盖主题）
-│   └── extend_footer.html # 阅读统计 JS（覆盖主题）
-├── themes/PaperMod/       # 主题（Git Submodule）
-├── webhook/               # 自动部署 + 阅读统计服务（Go）
-├── hugo.toml              # Hugo 配置
-├── DEPLOY.md              # 完整部署文档和故障排查
+│   ├── comments.html         # giscus 评论组件（覆盖主题）
+│   ├── extend_head.html      # Google Fonts 字体加载
+│   └── extend_footer.html    # 阅读统计 JS（覆盖主题）
+├── themes/PaperMod/          # 主题（Git Submodule）
+├── webhook/                  # 自动部署 + 阅读统计服务（Go）
+├── hugo.toml                 # Hugo 配置
+├── DEPLOY.md                 # 完整部署文档和故障排查
 └── README.md
 ```
 
@@ -73,3 +80,16 @@ blog/
 ### Webhook 改进
 - [ ] webhook 构建失败时发通知（邮件或微信推送）
 - [ ] 添加构建日志持久化，方便排查问题
+
+## 运维常用命令
+
+```bash
+# 查看 webhook 构建日志（排查部署失败）
+ssh ubuntu@111.230.5.121 "journalctl -u blog-webhook -n 50 --no-pager"
+
+# 手动触发构建
+ssh ubuntu@111.230.5.121 "cd /home/ubuntu/blog && git pull && hugo"
+
+# 重启 webhook 服务
+ssh ubuntu@111.230.5.121 "sudo systemctl restart blog-webhook"
+```
