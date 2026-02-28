@@ -161,12 +161,25 @@ code, pre, .highlight {
 /* --- 代码块优化：GitHub 浅色主题（hugo gen chromastyles --style=github） --- */
 
 /* 无语言标注的代码块：<pre><code> 没有 .chroma，需要单独设样式 */
-.post-content > pre {
+.post-content pre:not(.chroma) {
     background: var(--code-block-bg) !important;
-    color: var(--primary);
+    color: #1f2328 !important;
     padding: 1em 1.2em;
     border-radius: 8px;
     overflow-x: auto;
+}
+
+.post-content pre:not(.chroma) code {
+    color: #1f2328 !important;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .post-content pre:not(.chroma) {
+    color: #cad3f5 !important;
+}
+
+[data-theme="dark"] .post-content pre:not(.chroma) code {
+    color: #cad3f5 !important;
 }
 
 /* 代码块显示语言标签 */
