@@ -22,12 +22,12 @@ code, pre, .highlight {
 
 /* --- 排版优化 --- */
 .post-content {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
 .post-content p {
-    margin-bottom: 1.2em;
+    margin-bottom: 0.8em;
 }
 
 /* --- 全站标题缩小：PaperMod 默认太大，不适合中文长内容阅读 --- */
@@ -40,8 +40,8 @@ code, pre, .highlight {
 .post-content h1 { font-size: 26px; }
 
 .post-content h2 {
-    margin-top: 2em;
-    margin-bottom: 0.8em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
     font-size: 22px;
     color: var(--heading-color-h2);
     padding-bottom: 0.3em;
@@ -49,8 +49,8 @@ code, pre, .highlight {
 }
 
 .post-content h3 {
-    margin-top: 1.6em;
-    margin-bottom: 0.6em;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
     font-size: 18px;
     color: var(--heading-color-h3);
 }
@@ -70,7 +70,7 @@ code, pre, .highlight {
 /* 大屏微调字号 */
 @media screen and (min-width: 1200px) {
     .post-content {
-        font-size: 17px;
+        font-size: 15.5px;
     }
 }
 
@@ -311,8 +311,8 @@ code, pre, .highlight {
 /* --- 移动端适配 --- */
 @media screen and (max-width: 768px) {
     .post-content {
-        font-size: 15.5px;
-        line-height: 1.75;
+        font-size: 14.5px;
+        line-height: 1.65;
     }
 
     .post-content blockquote {
