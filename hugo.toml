@@ -11,10 +11,8 @@ lastmod = [':git']
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
-[params.author]
-  name = "sharon"
-
 [params]
+  author = "sharon"
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowPostNavLinks = true
@@ -22,6 +20,10 @@ lastmod = [':git']
   ShowShareButtons = false
   ShowCodeCopyButtons = true
   comments = true
+
+[params.label]
+  icon = "/logo.png"
+  iconHeight = 30
 
 [params.homeInfoParams]
   Title = "Welcome"

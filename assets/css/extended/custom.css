@@ -30,9 +30,19 @@ code, pre, .highlight {
     margin-bottom: 1.2em;
 }
 
+/* --- 全站标题缩小：PaperMod 默认太大，不适合中文长内容阅读 --- */
+/* 文章详情页标题：40px → 28px */
+.post-title {
+    font-size: 28px;
+}
+
+/* 文章内 H1-H4 */
+.post-content h1 { font-size: 26px; }
+
 .post-content h2 {
     margin-top: 2em;
     margin-bottom: 0.8em;
+    font-size: 22px;
     color: var(--heading-color-h2);
     padding-bottom: 0.3em;
     border-bottom: 1px solid var(--border);
@@ -41,7 +51,20 @@ code, pre, .highlight {
 .post-content h3 {
     margin-top: 1.6em;
     margin-bottom: 0.6em;
+    font-size: 18px;
     color: var(--heading-color-h3);
+}
+
+.post-content h4 { font-size: 16px; }
+
+/* 首页/列表页卡片标题：34px → 22px */
+.entry-header h2 {
+    font-size: 22px;
+}
+
+/* 首页 Welcome 标题 */
+.first-entry .entry-header h1 {
+    font-size: 24px;
 }
 
 /* 大屏微调字号 */
@@ -133,11 +156,82 @@ code, pre, .highlight {
     font-style: italic;
 }
 
-/* --- 代码块优化 --- */
-.post-content .highlight pre {
+/* --- 代码块优化：浅色背景 --- */
+/* 覆盖 PaperMod 内置的 Catppuccin 深色代码配色 */
+.post-content .highlight pre,
+.highlight pre.chroma,
+.chroma {
+    background-color: #f5f7fb !important;
+    color: #334155 !important;
     border-radius: 8px;
+}
+
+.post-content .highlight pre {
     padding: 1em 1.2em;
 }
+
+/* 浅色代码高亮语法色 */
+.chroma .k, .chroma .kc, .chroma .kd,
+.chroma .kp, .chroma .kr { color: #7c3aed; }           /* 关键字：紫色 */
+.chroma .kt, .chroma .kn { color: #0891b2; }            /* 类型/命名空间：青色 */
+.chroma .s, .chroma .s1, .chroma .s2,
+.chroma .sb, .chroma .sc, .chroma .si,
+.chroma .sx, .chroma .ss { color: #16a34a; }            /* 字符串：绿色 */
+.chroma .m, .chroma .mi, .chroma .mf,
+.chroma .mh, .chroma .mb, .chroma .mo,
+.chroma .il { color: #d97706; }                          /* 数字：琥珀色 */
+.chroma .nf, .chroma .fm { color: #2563eb; }            /* 函数名：蓝色 */
+.chroma .nc, .chroma .no { color: #b45309; }            /* 类名/常量：棕色 */
+.chroma .na { color: #0284c7; }                          /* 属性：天蓝 */
+.chroma .nb, .chroma .bp { color: #0891b2; }            /* 内建：青色 */
+.chroma .nn { color: #6d28d9; }                          /* 命名空间：深紫 */
+.chroma .nt { color: #7c3aed; }                          /* 标签：紫色 */
+.chroma .c, .chroma .c1, .chroma .cm,
+.chroma .ch, .chroma .cs, .chroma .cp,
+.chroma .cpf { color: #94a3b8; font-style: italic; }    /* 注释：灰色斜体 */
+.chroma .o, .chroma .ow { color: #0891b2; }             /* 运算符：青色 */
+.chroma .err { color: #dc2626; }                         /* 错误：红色 */
+.chroma .lnt, .chroma .ln { color: #94a3b8; }           /* 行号：灰色 */
+.chroma .hl { background-color: #e0e7ff; }              /* 高亮行：浅蓝 */
+.chroma .gd { color: #dc2626; background-color: #fef2f2; } /* diff 删除 */
+.chroma .gi { color: #16a34a; background-color: #f0fdf4; } /* diff 新增 */
+
+/* 暗色模式保持深色代码块 */
+[data-theme="dark"] .highlight pre.chroma,
+[data-theme="dark"] .chroma {
+    background-color: var(--code-bg) !important;
+    color: #cad3f5 !important;
+}
+
+/* 暗色模式恢复 PaperMod 原始 Catppuccin 配色 */
+[data-theme="dark"] .chroma .k, [data-theme="dark"] .chroma .kc,
+[data-theme="dark"] .chroma .kd, [data-theme="dark"] .chroma .kp,
+[data-theme="dark"] .chroma .kr { color: #c6a0f6; }
+[data-theme="dark"] .chroma .kt, [data-theme="dark"] .chroma .kn { color: #8bd5ca; }
+[data-theme="dark"] .chroma .s, [data-theme="dark"] .chroma .s1,
+[data-theme="dark"] .chroma .s2, [data-theme="dark"] .chroma .sb,
+[data-theme="dark"] .chroma .sc, [data-theme="dark"] .chroma .si,
+[data-theme="dark"] .chroma .sx, [data-theme="dark"] .chroma .ss { color: #a6da95; }
+[data-theme="dark"] .chroma .m, [data-theme="dark"] .chroma .mi,
+[data-theme="dark"] .chroma .mf, [data-theme="dark"] .chroma .mh,
+[data-theme="dark"] .chroma .mb, [data-theme="dark"] .chroma .mo,
+[data-theme="dark"] .chroma .il { color: #f5a97f; }
+[data-theme="dark"] .chroma .nf, [data-theme="dark"] .chroma .fm { color: #8aadf4; }
+[data-theme="dark"] .chroma .nc, [data-theme="dark"] .chroma .no { color: #eed49f; }
+[data-theme="dark"] .chroma .na { color: #8aadf4; }
+[data-theme="dark"] .chroma .nb, [data-theme="dark"] .chroma .bp { color: #91d7e3; }
+[data-theme="dark"] .chroma .nn { color: #f5a97f; }
+[data-theme="dark"] .chroma .nt { color: #c6a0f6; }
+[data-theme="dark"] .chroma .c, [data-theme="dark"] .chroma .c1,
+[data-theme="dark"] .chroma .cm, [data-theme="dark"] .chroma .ch,
+[data-theme="dark"] .chroma .cs, [data-theme="dark"] .chroma .cp,
+[data-theme="dark"] .chroma .cpf { color: #6e738d; }
+[data-theme="dark"] .chroma .o, [data-theme="dark"] .chroma .ow { color: #91d7e3; }
+[data-theme="dark"] .chroma .err { color: #ed8796; }
+[data-theme="dark"] .chroma .lnt, [data-theme="dark"] .chroma .ln { color: #8087a2; }
+[data-theme="dark"] .chroma .hl { background-color: #474733; }
+[data-theme="dark"] .chroma .gd { color: #ed8796; background-color: #363a4f; }
+[data-theme="dark"] .chroma .gi { color: #a6da95; background-color: #363a4f; }
 
 .post-content code {
     border-radius: 4px;
