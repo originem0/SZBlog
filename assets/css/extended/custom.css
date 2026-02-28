@@ -78,8 +78,8 @@ code, pre, .highlight {
 /* Blue Topaz 风格：覆盖 PaperMod 原生变量，全站统一蓝色调 */
 :root {
     /* 覆盖 PaperMod 核心变量，全站生效 */
-    --primary: #1a1a1a;                /* 正文字体加深（原 rgb(32,33,36) 偏灰） */
-    --secondary: #555;                 /* 副文本加深（原 rgb(108,108,108)） */
+    --primary: #111;                   /* 正文字体近纯黑 */
+    --secondary: #444;                 /* 副文本加深 */
     --theme: #f8faff;                  /* 页面背景微蓝（原 rgb(255,255,255)） */
     --entry: #ffffff;                  /* 卡片白色，与背景形成层次（原 rgb(255,255,255)） */
     --border: #e0e7f1;                 /* 边框偏蓝灰（原 rgb(238,238,238)） */
@@ -165,14 +165,14 @@ code, pre, .highlight {
 /* 无语言标注的代码块：<pre><code> 没有 .chroma，需要单独设样式 */
 .post-content pre:not(.chroma) {
     background: var(--code-block-bg) !important;
-    color: #1a1a1a !important;
+    color: #111 !important;
     padding: 1em 1.2em;
     border-radius: 8px;
     overflow-x: auto;
 }
 
 .post-content pre:not(.chroma) code {
-    color: #1a1a1a !important;
+    color: #111 !important;
     background: transparent !important;
 }
 
@@ -208,7 +208,7 @@ code, pre, .highlight {
 }
 
 /* 亮色模式：覆盖 PaperMod 内置 Catppuccin 深色 */
-.chroma { color: #1a1a1a; background-color: var(--code-block-bg) !important; }
+.chroma { color: #111; background-color: var(--code-block-bg) !important; }
 .highlight pre.chroma { padding: 1em 1.2em; border-radius: 8px; }
 .chroma .err { color: #f6f8fa; background-color: #82071e; }
 .chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
@@ -218,12 +218,12 @@ code, pre, .highlight {
 .chroma .lnt, .chroma .ln { color: #7f7f7f; }
 .chroma .k, .chroma .kc, .chroma .kd, .chroma .kn,
 .chroma .kp, .chroma .kr, .chroma .kt { color: #cf222e; }
-.chroma .na, .chroma .nc { color: #1a1a1a; }
+.chroma .na, .chroma .nc { color: #111; }
 .chroma .no, .chroma .nd, .chroma .nt { color: #0550ae; }
 .chroma .ni { color: #6639ba; }
 .chroma .nl { color: #900; font-weight: bold; }
 .chroma .nn { color: #24292e; }
-.chroma .nx, .chroma .p { color: #1a1a1a; }
+.chroma .nx, .chroma .p { color: #111; }
 .chroma .nb, .chroma .nf, .chroma .fm { color: #6639ba; }
 .chroma .bp { color: #6a737d; }
 .chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm { color: #953800; }
@@ -237,9 +237,9 @@ code, pre, .highlight {
 .chroma .c, .chroma .ch, .chroma .cm, .chroma .c1,
 .chroma .cs, .chroma .cp, .chroma .cpf { color: #57606a; }
 .chroma .gd { color: #82071e; background-color: #ffebe9; }
-.chroma .ge { color: #1a1a1a; }
+.chroma .ge { color: #111; }
 .chroma .gi { color: #116329; background-color: #dafbe1; }
-.chroma .go { color: #1a1a1a; }
+.chroma .go { color: #111; }
 .chroma .gl { text-decoration: underline; }
 
 /* 暗色模式：恢复 PaperMod 原始 Catppuccin Macchiato 配色 */
