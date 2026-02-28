@@ -159,6 +159,39 @@ code, pre, .highlight {
 }
 
 /* --- 代码块优化：GitHub 浅色主题（hugo gen chromastyles --style=github） --- */
+
+/* 无语言标注的代码块：<pre><code> 没有 .chroma，需要单独设样式 */
+.post-content > pre {
+    background: var(--code-block-bg) !important;
+    color: var(--primary);
+    padding: 1em 1.2em;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* 代码块显示语言标签 */
+.highlight {
+    position: relative;
+}
+.highlight > div,
+.highlight > pre {
+    position: relative;
+}
+.highlight code[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--secondary);
+    background: var(--border);
+    border-radius: 0 8px 0 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+}
+
 /* 亮色模式：覆盖 PaperMod 内置 Catppuccin 深色 */
 .chroma { color: #1f2328; background-color: var(--code-block-bg) !important; }
 .highlight pre.chroma { padding: 1em 1.2em; border-radius: 8px; }
