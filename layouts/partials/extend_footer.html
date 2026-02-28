@@ -43,7 +43,7 @@
     <h3 class="sidebar-title">标签</h3>
     <div class="sidebar-tags">
       {{- range $name, $pages := . }}
-      <a href="{{ printf "/tags/%s/" $name | absURL }}" class="sidebar-tag">{{ $name }} <span class="sidebar-tag-count">{{ len $pages }}</span></a>
+      <a href="{{ printf "/tags/%s/" ($name | urlize) | absURL }}" class="sidebar-tag">{{ $name }} <span class="sidebar-tag-count">{{ len $pages }}</span></a>
       {{- end }}
     </div>
   </div>
