@@ -295,6 +295,32 @@
     border-bottom: none;
 }
 
+/* --- 想法列表：极简日期+标题 --- */
+.thought-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.thought-date {
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.thought-title {
+    font-size: 15px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.thought-title:hover {
+    color: var(--link-color);
+}
+
 /* --- 行内代码 --- */
 .post-content code {
     border-radius: 4px;

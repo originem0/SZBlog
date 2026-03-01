@@ -17,7 +17,7 @@ lastmod = [':git']
   env = "production"
   description = "个人技术博客，记录 AI、建站与方法论"
   defaultTheme = "auto"
-  mainSections = ["posts", "ai-daily"]
+  mainSections = ["posts", "ai-daily", "thoughts"]
   author = "Sharon"
   ShowReadingTime = true
   ShowPostNavLinks = true
@@ -47,19 +47,24 @@ lastmod = [':git']
   weight = 2
 
 [[menus.main]]
+  name = "想法"
+  url = "/thoughts/"
+  weight = 3
+
+[[menus.main]]
   name = "归档"
   url = "/archives/"
-  weight = 3
+  weight = 4
 
 [[menus.main]]
   name = "搜索"
   url = "/search/"
-  weight = 4
+  weight = 5
 
 [[menus.main]]
   name = "关于"
   url = "/about/"
-  weight = 5
+  weight = 6
 
 [markup.highlight]
   noClasses = false
