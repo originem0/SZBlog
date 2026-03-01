@@ -17,26 +17,23 @@
     border-bottom-color: var(--link-hover-color);
 }
 
-[data-theme="dark"] .post-content a {
-    color: var(--link-color);
-}
-
-[data-theme="dark"] .post-content a:hover {
-    color: var(--link-hover-color);
-    border-bottom-color: var(--link-hover-color);
-}
-
-/* --- 文章卡片 --- */
+/* --- 文章卡片 → GitHub 扁平列表 --- */
 .post-entry {
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    margin-bottom: 0;
+    transition: none;
 }
 
 .post-entry:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 [data-theme="dark"] .post-entry:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 .post-entry:active {
@@ -56,6 +53,8 @@
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 16px;
+    display: block;
+    overflow-x: auto;
 }
 
 .post-content th,
@@ -69,11 +68,55 @@
     background: var(--code-block-bg);
 }
 
+.post-content tr:nth-child(2n) {
+    background: var(--code-block-bg);
+}
+
 /* --- HR: GitHub 风格灰线 --- */
 .post-content hr {
     border: none;
     border-top: 1px solid var(--border);
     margin: 24px 0;
+}
+
+/* --- 列表间距 --- */
+.post-content li + li {
+    margin-top: 0.25em;
+}
+
+/* --- details/summary: GitHub 风格折叠块 --- */
+.post-content details {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.post-content details summary {
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.post-content details summary::-webkit-details-marker {
+    display: none;
+}
+
+.post-content details summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.75em;
+    transition: transform 0.2s ease;
+}
+
+.post-content details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.post-content details > :not(summary) {
+    padding: 0 16px;
 }
 
 /* --- 标签 --- */

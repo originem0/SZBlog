@@ -461,7 +461,7 @@ namei -l /home/ubuntu/blog/public/index.html
 
 **文章发布了但页面上看不到：**
 - 检查文章头部 `draft` 是否为 `false`
-- 检查文章 `date` 是否是未来时间（Hugo 默认不发布未来日期的文章）
+- 检查文章 `date` 是否是未来时间（Hugo 默认不发布未来日期的文章）。已在 `hugo.toml` 中配置 `buildFuture = true` 解决日报场景，日报 date 固定为当天 `T09:00:00+08:00`，推送时间可能早于该时刻
 
 **主题样式丢失：**
 - 检查 themes/PaperMod 目录是否存在且有内容

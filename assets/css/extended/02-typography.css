@@ -44,8 +44,16 @@ code, pre, .highlight {
 
 .post-content h4 { font-size: 1em; }
 
+/* --- 列表页标题：紧凑化 --- */
 .entry-header h2 {
-    font-size: 22px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.entry-content {
+    margin: 4px 0;
+    font-size: 14px;
+    -webkit-line-clamp: 2;
 }
 
 .first-entry .entry-header h1 {

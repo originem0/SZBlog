@@ -3,6 +3,8 @@ languageCode = 'zh-cn'
 title = 'Sharon 的博客'
 theme = 'PaperMod'
 enableGitInfo = true
+buildFuture = true
+paginate = 20
 
 [frontmatter]
 date = ['date',':git'] 
