@@ -40,16 +40,19 @@ hugo server --buildDrafts
 - [x] giscus 评论系统（基于 GitHub Discussions）
 - [x] 阅读统计（Go + SQLite 聚合计数，Nginx 反向代理）
 - [x] Nginx gzip 压缩 + 静态资源缓存
-- [x] 视觉优化：自定义字体栈（Noto Serif SC / Inter / JetBrains Mono）
+- [x] 视觉优化：GitHub Markdown 风格（Noto Sans SC / Inter / JetBrains Mono）
 - [x] 视觉优化：排版调整（行高、间距、链接样式、代码块圆角）
+- [x] 视觉优化：列表页扁平化（去卡片，底线分隔）+ 归档页紧凑化
 - [x] 视觉优化：Paginav 重设计、导航栏过渡、标签/面包屑/Footer 交互优化
-- [x] 亮色/暗色模式适配（含 `--primary` / `--secondary` 暗色变量）
+- [x] 亮色/暗色模式适配（GitHub Light / GitHub Dark 配色）
 - [x] 代码高亮：亮色 GitHub 主题 + 暗色 Catppuccin Macchiato
 - [x] 侧边栏分类导航（Hugo 模板动态生成，宽屏 sticky 浮动）
 - [x] TOC 目录浮动（宽屏右侧 fixed，窄屏内联）
 - [x] SEO：OpenGraph / Twitter Card meta（`env = "production"`）
 - [x] Webhook 安全加固：secret 空拒绝、CORS 域名限定、path 校验、rate limit
 - [x] CSS 模块化拆分（6 个文件，按职责分离）
+- [x] Front Matter 统一 YAML 格式
+- [x] 想法（thoughts）独立 section + 极简列表模板
 
 ## 项目结构
 
@@ -65,13 +68,17 @@ blog/
 ├── content/
 │   ├── posts/                 # 文章 Markdown 文件
 │   ├── ai-daily/              # AI 日报板块
+│   ├── thoughts/              # 短想法（极简列表模板）
 │   ├── archives.md            # 归档页
 │   ├── search.md              # 搜索页
 │   └── about.md               # 关于页
-├── layouts/partials/
-│   ├── comments.html          # giscus 评论组件
-│   ├── extend_head.html       # Google Fonts 字体加载
-│   └── extend_footer.html     # 阅读统计 JS + 侧边栏导航
+├── layouts/
+│   ├── partials/
+│   │   ├── comments.html      # giscus 评论组件
+│   │   ├── extend_head.html   # Google Fonts 字体加载
+│   │   └── extend_footer.html # 阅读统计 JS + 侧边栏导航
+│   └── thoughts/
+│       └── list.html          # 想法列表专属模板（只显示日期+标题）
 ├── themes/PaperMod/           # 主题（Git Submodule）
 ├── webhook/                   # 自动部署 + 阅读统计 API（Go + SQLite）
 ├── hugo.toml                  # Hugo 配置

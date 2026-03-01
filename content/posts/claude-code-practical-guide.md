@@ -1,8 +1,8 @@
-+++
-draft = false 
-title = 'Claude Code AI 开发实战指南'
-tags = ['claude code','方法论'] 
-+++
+---
+draft: false
+title: "Claude Code AI 开发实战指南"
+tags: ["claude code", "方法论"]
+---
 
 
 > 基于 Anthropic 内部最佳实践（Boris 分享）+ 个人实操总结的可执行操作手册。
