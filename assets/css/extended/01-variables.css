@@ -1,38 +1,34 @@
 /* ============================================
    01-variables: 亮色/暗色模式 CSS 变量
+   风格：GitHub Markdown
    ============================================ */
 
-/* --- 亮色模式：Blue Topaz 风格 --- */
+/* --- 亮色模式：GitHub Light --- */
 :root {
-    --primary: #111;
-    --secondary: #444;
-    --theme: #f8faff;
+    --primary: #1f2328;
+    --secondary: #656d76;
+    --theme: #ffffff;
     --entry: #ffffff;
-    --border: #e0e7f1;
-    --code-bg: #eef2f9;
-    --code-block-bg: #f5f7fb;
-    /* 自定义扩展变量 */
-    --link-color: #2563eb;
-    --link-hover-color: #1d4ed8;
-    --heading-color-h2: #1e40af;
-    --heading-color-h3: #2563eb;
-    --blockquote-bg: #eff6ff;
-    --blockquote-border: #3b82f6;
+    --border: #d0d7de;
+    --code-bg: rgba(175, 184, 193, 0.2);
+    --code-block-bg: #f6f8fa;
+    --link-color: #0969da;
+    --link-hover-color: #0550ae;
+    --blockquote-bg: transparent;
+    --blockquote-border: #d0d7de;
 }
 
-/* --- 暗色模式 --- */
+/* --- 暗色模式：GitHub Dark --- */
 :root[data-theme="dark"] {
-    --primary: #e0e0e0;
-    --secondary: #aaa;
-    --theme: #1a1b2e;
-    --entry: #1e1f33;
-    --border: #2d3152;
-    --code-bg: #252640;
-    --code-block-bg: #252640;
-    --link-color: #60a5fa;
-    --link-hover-color: #93bbfd;
-    --heading-color-h2: #60a5fa;
-    --heading-color-h3: #93c5fd;
-    --blockquote-bg: rgba(59, 130, 246, 0.08);
-    --blockquote-border: #3b82f6;
+    --primary: #e6edf3;
+    --secondary: #8b949e;
+    --theme: #0d1117;
+    --entry: #161b22;
+    --border: #30363d;
+    --code-bg: rgba(110, 118, 129, 0.4);
+    --code-block-bg: #161b22;
+    --link-color: #58a6ff;
+    --link-hover-color: #79c0ff;
+    --blockquote-bg: transparent;
+    --blockquote-border: #30363d;
 }

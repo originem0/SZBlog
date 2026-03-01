@@ -6,14 +6,14 @@
 /* --- 无语言标注的代码块 --- */
 .post-content pre:not(.chroma) {
     background: var(--code-block-bg) !important;
-    color: #24292f !important;
+    color: var(--primary) !important;
     padding: 1em 1.2em;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow-x: auto;
 }
 
 .post-content pre:not(.chroma) code {
-    color: #24292f !important;
+    color: var(--primary) !important;
     background: transparent !important;
 }
 
@@ -42,7 +42,7 @@
     font-size: 11px;
     color: var(--secondary);
     background: var(--border);
-    border-radius: 0 8px 0 4px;
+    border-radius: 0 6px 0 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     pointer-events: none;
@@ -50,7 +50,7 @@
 
 /* --- 亮色模式：GitHub 浅色主题 --- */
 .chroma { color: #24292f; background-color: var(--code-block-bg) !important; }
-.highlight pre.chroma { padding: 1em 1.2em; border-radius: 8px; }
+.highlight pre.chroma { padding: 1em 1.2em; border-radius: 6px; }
 .chroma .err { color: #f6f8fa; background-color: #82071e; }
 .chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
 .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }

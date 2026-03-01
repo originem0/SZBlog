@@ -43,16 +43,37 @@
     transform: none;
 }
 
-/* --- Blockquote --- */
+/* --- Blockquote: GitHub 风格，简洁灰线无背景 --- */
 .post-content blockquote {
     border-left: 3px solid var(--blockquote-border);
-    background: var(--blockquote-bg);
-    border-radius: 0 8px 8px 0;
-    padding: 1em 1.2em;
-    margin-left: 0;
-    margin-right: 0;
     color: var(--secondary);
-    font-style: italic;
+    padding: 0 1em;
+    margin: 0 0 16px 0;
+}
+
+/* --- 表格：AI 日报等内容大量使用 --- */
+.post-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid var(--border);
+    padding: 6px 13px;
+}
+
+.post-content th {
+    font-weight: 600;
+    background: var(--code-block-bg);
+}
+
+/* --- HR: GitHub 风格灰线 --- */
+.post-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
 }
 
 /* --- 标签 --- */

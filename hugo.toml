@@ -14,7 +14,6 @@ lastmod = [':git']
 [params]
   env = "production"
   description = "个人技术博客，记录 AI、建站与方法论"
-  author = "sharon"
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowPostNavLinks = true

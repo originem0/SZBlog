@@ -2,18 +2,18 @@
    06-responsive: 所有响应式 media queries
    ============================================ */
 
-/* 大屏微调字号 */
+/* 大屏统一字号 */
 @media screen and (min-width: 1200px) {
     .post-content {
-        font-size: 15.5px;
+        font-size: 16px;
     }
 }
 
 /* 移动端适配 */
 @media screen and (max-width: 768px) {
     .post-content {
-        font-size: 14.5px;
-        line-height: 1.65;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     .post-content blockquote {
