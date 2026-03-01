@@ -18,6 +18,7 @@ lastmod = [':git']
   description = "个人技术博客，记录 AI、建站与方法论"
   defaultTheme = "auto"
   mainSections = ["posts", "ai-daily"]
+  author = "Sharon"
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
@@ -30,9 +31,6 @@ lastmod = [':git']
 [params.label]
   icon = "/logo.png"
   iconHeight = 30
-
-[params.author]
-  name = "Sharon"
 
 [params.homeInfoParams]
   Title = "Welcome"

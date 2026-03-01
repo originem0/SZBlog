@@ -207,9 +207,9 @@
     color: var(--primary);
 }
 
-/* --- 列表页/归档页：宽度对齐导航栏 --- */
+/* --- 列表页/归档页：适度加宽，不遮挡侧边栏 --- */
 .list .main {
-    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    max-width: calc(800px + var(--gap) * 2);
 }
 
 /* 列表页背景：纯白，覆盖 PaperMod 默认灰底 */
