@@ -27,6 +27,7 @@ lastmod = [':git']
   ShowToc = true
   TocOpen = true
   comments = true
+  hideAuthor = true
 
 [params.label]
   icon = "/logo.png"
