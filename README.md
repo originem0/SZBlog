@@ -15,9 +15,12 @@ GitHub: 存储源码（博客安全网）
 ### 写文章
 
 ```bash
-hugo new content posts/文章名.md
+# 创建文章（Page Bundle 结构，图文同目录）
+mkdir content/posts/文章名
+hugo new content/posts/文章名/index.md
 # 编辑文章，把 draft 改为 false
-git add content/posts/文章名.md
+# 图片直接放进同目录，Markdown 里用 ![](图片名.png) 引用
+git add content/posts/文章名/
 git commit -m "new post: 文章名"
 git push
 # 几秒后自动上线
@@ -52,7 +55,9 @@ hugo server --buildDrafts
 - [x] Webhook 安全加固：secret 空拒绝、CORS 域名限定、path 校验、rate limit
 - [x] CSS 模块化拆分（6 个文件，按职责分离）
 - [x] Front Matter 统一 YAML 格式
-- [x] 想法（thoughts）独立 section + 极简列表模板
+- [x] 想法（thoughts）独立 section
+- [x] 归档页精简（自定义模板，隐藏年份和作者，只显示月日+阅读时长）
+- [x] Git pre-push hook：推送前自动 hugo 构建检查，编译失败阻止推送
 
 ## 项目结构
 
@@ -66,19 +71,19 @@ blog/
 │   ├── 05-sidebar.css         # 侧边栏导航 + TOC 浮动
 │   └── 06-responsive.css      # 响应式 media queries
 ├── content/
-│   ├── posts/                 # 文章 Markdown 文件
+│   ├── posts/                 # 文章（Page Bundle：每篇一个文件夹，含 index.md + 图片）
 │   ├── ai-daily/              # AI 日报板块
-│   ├── thoughts/              # 短想法（极简列表模板）
+│   ├── thoughts/              # 短想法
 │   ├── archives.md            # 归档页
 │   ├── search.md              # 搜索页
 │   └── about.md               # 关于页
 ├── layouts/
+│   ├── _default/
+│   │   └── archives.html      # 自定义归档模板（精简 meta，隐藏年份和作者）
 │   ├── partials/
 │   │   ├── comments.html      # giscus 评论组件
 │   │   ├── extend_head.html   # Google Fonts 字体加载
 │   │   └── extend_footer.html # 阅读统计 JS + 侧边栏导航
-│   └── thoughts/
-│       └── list.html          # 想法列表专属模板（只显示日期+标题）
 ├── themes/PaperMod/           # 主题（Git Submodule）
 ├── webhook/                   # 自动部署 + 阅读统计 API（Go + SQLite）
 ├── hugo.toml                  # Hugo 配置
@@ -91,7 +96,7 @@ blog/
 
 ### 优化
 - [ ] 配置 CDN 加速静态资源
-- [ ] 图片方案：接入对象存储（腾讯云 COS）作为图床，避免仓库膨胀
+- [x] 图片方案：Page Bundle（图文同目录），大量图片场景可后续接入对象存储
 - [ ] 服务器安全加固：改 SSH 端口、关闭密码登录
 
 ### Webhook 改进
