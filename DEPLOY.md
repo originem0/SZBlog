@@ -7,7 +7,7 @@
     ↓ git push
 GitHub (originem0/SZBlog)
     ↓ Webhook POST http://111.230.5.121:9000/webhook
-服务器 Ubuntu (git pull → hugo build → Nginx 托管静态文件)
+服务器 Ubuntu (git fetch + reset --hard → hugo build → Nginx 托管静态文件)
 ```
 
 ## 技术栈
@@ -262,8 +262,12 @@ sudo systemctl start blog-webhook
 ```
 
 服务提供两组端点：
-- `POST /webhook` — GitHub 推送时自动 git pull + hugo build
-- `GET/POST /api/view?path=xxx` — 阅读计数（通过 Nginx 反向代理从 80 端口访问）
+- `POST /webhook` — GitHub 推送时自动 `git fetch + reset --hard origin/main` 再 `hugo --gc --cleanDestinationDir`（构建串行化，自动清理已删除内容的孤儿文件）
+- `GET/POST /api/view?path=xxx` — 阅读计数（通过 Nginx 反向代理访问）
+
+> ⚠️ webhook 只重建**站点**（hugo），**不会重建自身**。改动 `webhook/main.go` 后，
+> 推送只会让源码更新，运行中的二进制仍是旧的——必须手动 `go build` + `systemctl restart`
+> （见下方第五节「webhook 二进制更新后没生效」）。
 
 ### 5. 配置 GitHub Webhook
 
@@ -420,8 +424,8 @@ sudo journalctl -u blog-webhook --since "10 minutes ago" --no-pager
 
 ```bash
 cd /home/ubuntu/blog
-git pull
-/usr/local/bin/hugo
+git fetch origin && git reset --hard origin/main
+/usr/local/bin/hugo --gc --cleanDestinationDir
 ```
 
 手动构建看有没有报错。
@@ -447,7 +451,7 @@ namei -l /home/ubuntu/blog/public/index.html
 1. 浏览器 F12 → Network，看 `/api/view` 请求有没有发出、状态码是什么
 2. 确认 Nginx 配置中有 `/api/` 反向代理到 `127.0.0.1:9000`
 3. 确认 webhook 服务在运行：`sudo systemctl status blog-webhook`
-4. 检查 SQLite 数据库是否正常：`sqlite3 /home/ubuntu/blog-views.db "SELECT * FROM views LIMIT 5;"`
+4. 检查 SQLite 数据库是否正常：`sqlite3 /home/ubuntu/blog-views.db "SELECT path,count FROM view_counts ORDER BY count DESC LIMIT 5;"`
 
 ### 评论框不显示
 

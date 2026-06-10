@@ -1,0 +1,8 @@
+{{- /*
+  Mermaid 代码块渲染钩子：把 ```mermaid 围栏输出为 <pre class="mermaid">，
+  供前端 mermaid.js 渲染。实际的脚本加载在 extend_footer.html 中按需触发
+  （检测到 pre.mermaid 才从 CDN 拉取），以兼容 footer 的 partialCached。
+*/ -}}
+<pre class="mermaid">
+{{- .Inner | htmlEscape | safeHTML -}}
+</pre>

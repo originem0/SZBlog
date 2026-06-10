@@ -19,9 +19,22 @@
     })
     .catch(function() {});
 
-  // 记录一次阅读
-  fetch(API + '?path=' + encodeURIComponent(path), { method: 'POST' })
-    .catch(function() {});
+  // 记录一次阅读：同一浏览器对同一 path 每 24h 只计一次，
+  // 避免刷新和作者自己反复打开导致计数虚高。localStorage 不可用时退化为每次都记。
+  function record() {
+    fetch(API + '?path=' + encodeURIComponent(path), { method: 'POST' }).catch(function() {});
+  }
+  try {
+    var key = 'viewed:' + path;
+    var last = parseInt(localStorage.getItem(key), 10) || 0;
+    var now = Date.now();
+    if (now - last > 86400000) {
+      localStorage.setItem(key, String(now));
+      record();
+    }
+  } catch (e) {
+    record();
+  }
 })();
 </script>
 {{- end }}
@@ -51,3 +64,17 @@
   {{- end }}
 </aside>
 {{- end }}
+
+{{/* Mermaid 渲染：仅当页面存在 pre.mermaid 时才从 CDN 拉取 mermaid，
+     运行时检测以兼容 footer 的 partialCached（不能用 Hugo 端 .Store 标记）。
+     主题跟随 <html data-theme>，dark 时用 mermaid 暗色主题。 */}}
+<script type="module">
+  if (document.querySelector('pre.mermaid')) {
+    const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark'
+      || (document.documentElement.getAttribute('data-theme') === 'auto'
+          && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'default' });
+    await mermaid.run({ querySelector: 'pre.mermaid' });
+  }
+</script>

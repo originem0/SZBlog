@@ -49,10 +49,11 @@ hugo server --buildDrafts
 - [x] 视觉优化：Paginav 重设计、导航栏过渡、标签/面包屑/Footer 交互优化
 - [x] 亮色/暗色模式适配（GitHub Light / GitHub Dark 配色）
 - [x] 代码高亮：亮色 GitHub 主题 + 暗色 Catppuccin Macchiato
+- [x] Mermaid 图表渲染（render hook + 按需加载 mermaid.js，跟随明暗主题）
 - [x] 侧边栏分类导航（Hugo 模板动态生成，宽屏 sticky 浮动）
 - [x] TOC 目录浮动（宽屏右侧 fixed，窄屏内联）
 - [x] SEO：OpenGraph / Twitter Card meta（`env = "production"`）
-- [x] Webhook 安全加固：secret 空拒绝、CORS 域名限定、path 校验、rate limit
+- [x] Webhook 安全加固：HMAC 校验、secret 空拒绝、CORS 域名限定、path 校验（拒绝 `..`）、rate limit（按 X-Real-IP，含过期清理防内存泄漏）、构建串行化、请求体上限、HTTP 超时
 - [x] CSS 模块化拆分（6 个文件，按职责分离）
 - [x] Front Matter 统一 YAML 格式
 - [x] 想法（thoughts）独立 section
@@ -79,7 +80,9 @@ blog/
 │   └── about.md               # 关于页
 ├── layouts/
 │   ├── _default/
-│   │   └── archives.html      # 自定义归档模板（精简 meta，隐藏年份和作者）
+│   │   ├── archives.html      # 自定义归档模板（精简 meta，隐藏年份和作者）
+│   │   └── _markup/
+│   │       └── render-codeblock-mermaid.html  # mermaid 代码块渲染钩子
 │   ├── partials/
 │   │   ├── comments.html      # giscus 评论组件
 │   │   ├── extend_head.html   # Google Fonts 字体加载
@@ -110,7 +113,7 @@ blog/
 ssh ubuntu@111.230.5.121 "journalctl -u blog-webhook -n 50 --no-pager"
 
 # 手动触发构建
-ssh ubuntu@111.230.5.121 "cd /home/ubuntu/blog && git fetch origin && git reset --hard origin/main && hugo"
+ssh ubuntu@111.230.5.121 "cd /home/ubuntu/blog && git fetch origin && git reset --hard origin/main && hugo --gc --cleanDestinationDir"
 
 # 重启 webhook 服务
 ssh ubuntu@111.230.5.121 "sudo systemctl restart blog-webhook"
